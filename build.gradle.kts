@@ -3,16 +3,15 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.time.LocalDate
 
+group = "bras.casa"
 version = "1.0.0-SNAPSHOT"
 val quarkusVersion: String by project
-val spotless: String by project
 
 plugins {
     kotlin("jvm") version "2.0.10"
     kotlin("plugin.allopen") version "2.0.10"
     id("io.quarkus") apply false
     id("com.diffplug.spotless") version "6.25.0" apply false
-    id("com.ncorti.ktfmt.gradle") version "0.20.1" apply false
 }
 
 repositories {
@@ -20,22 +19,12 @@ repositories {
     mavenLocal()
 }
 
-dependencies {
-    implementation(
-        project(":hibernate-query-builder")
-    )
-}
-
-
 subprojects {
     apply(plugin = "io.quarkus")
     apply(plugin = "kotlin")
     apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
-    apply(plugin = "com.ncorti.ktfmt.gradle")
     apply(plugin = "com.diffplug.spotless")
     apply(plugin = "jacoco")
-
-    group = "bras.casa"
 
     repositories {
         mavenCentral()

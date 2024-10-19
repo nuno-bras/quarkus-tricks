@@ -9,5 +9,6 @@ pluginManagement {
         id("io.quarkus") version quarkusVersion
     }
 }
+
 rootProject.name="quarkus-tricks"
-include("hibernate-query-builder")
+include("hibernate-query-builder", "repository-extension")
